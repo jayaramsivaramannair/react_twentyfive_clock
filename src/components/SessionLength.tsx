@@ -1,15 +1,15 @@
 import React from 'react'
-import {HiOutlineArrowSmUp} from 'react-icons/hi'
-import {HiOutlineArrowSmDown} from 'react-icons/hi'
+import {BiUpArrow} from 'react-icons/bi'
+import {BiDownArrow} from 'react-icons/bi'
 
 function SessionLength() {
   return (
     <div id="session-label">
       <p>Session Length</p>
         <div className="session-icons">
-          <HiOutlineArrowSmDown id="session-decrement"/>
+          <BiDownArrow id="session-decrement"/>
           <p id="session-length">25</p>
-          <HiOutlineArrowSmUp id="session-increment"/>
+          <BiUpArrow id="session-increment"/>
         </div>
     </div>
   )

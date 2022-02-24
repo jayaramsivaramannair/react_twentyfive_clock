@@ -9,7 +9,8 @@ body {
 
 .App {
   margin: 200px auto;
-  border: 2px solid green;
+  border: 6px solid indigo;
+  border-radius: 10px;
   width: 750px;
   height: 60vh;
 }
@@ -26,9 +27,13 @@ body {
 .length-adjustment {
   width: 75%;
   display: flex;
-  border: 2px solid orange;
   justify-content: space-evenly;
   align-items: center;
+}
+
+#break-length,
+#session-length {
+  width: 20px;
 }
 
 .break-icons {
@@ -43,13 +48,8 @@ body {
   align-items: center;
 }
 
-#break-label,
-#session-label {
-  border: 2px solid red;
-}
-
 #timer-label {
-  border: 5px solid green;
+  border: 5px solid indigo;
   width: 300px;
   display: flex;
   margin: 10px;
@@ -57,4 +57,17 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+}
+
+.controls {
+  display: flex;
+}
+
+#reset,
+#start_stop,
+#break-increment,
+#break-decrement,
+#session-increment,
+#session-decrement {
+  cursor: pointer;
 }

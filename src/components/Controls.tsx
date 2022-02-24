@@ -4,10 +4,14 @@ import {FiPlay, FiPause} from 'react-icons/fi'
 
 function Controls() {
   return (
-    <div>
-      <FiPlay id="start_stop"/>
-      <FiPause />
-      <BiReset id="reset"/>
+    <div className="controls">
+      <div id="start_stop">
+        <FiPlay id="start_stop"/>
+        <FiPause />
+      </div>
+      <div id="reset">
+        <BiReset />
+      </div>
     </div>
   )
 }
