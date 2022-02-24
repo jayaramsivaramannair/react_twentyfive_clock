@@ -2,6 +2,11 @@
   margin: none;
 }
 
+body {
+  background-color: #1e555c;
+  color: aliceblue;
+}
+
 .App {
   margin: 200px auto;
   border: 2px solid green;
@@ -41,4 +46,15 @@
 #break-label,
 #session-label {
   border: 2px solid red;
+}
+
+#timer-label {
+  border: 5px solid green;
+  width: 300px;
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
