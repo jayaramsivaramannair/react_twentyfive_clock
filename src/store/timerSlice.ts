@@ -25,18 +25,30 @@ export const timerSlice = createSlice({
   initialState,
   reducers: {
     incrementBreak: (state) => {
+      if (state.breakLength === 60) {
+        return 
+      }
       state.breakLength += 1
     },
 
     decrementBreak: (state) => {
+      if (state.breakLength === 0) {
+        return 
+      }
       state.breakLength -= 1
     },
 
     incrementSession: (state) => {
+      if (state.sessionLength === 60) {
+        return 
+      }
       state.sessionLength += 1
     },
 
     decrementSession: (state) => {
+      if(state.sessionLength === 0) {
+        return 
+      }
       state.sessionLength -= 1
     },
 
@@ -50,6 +62,10 @@ export const timerSlice = createSlice({
         state.timer.seconds = 59
       }
       state.timer.seconds -= 1
+    },
+
+    resetTimer: (state) => {
+        state.breakLength = 25;
     }
   }
 })
