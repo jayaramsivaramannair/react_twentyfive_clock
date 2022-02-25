@@ -11,7 +11,7 @@ function Timer() {
   return (
     <div id="timer-label">
       <p>Session</p>
-      <p id="time-left">{`${minutes}:${seconds}`}</p>
+      <p >{`${minutes}:${seconds}`}</p>
     </div>
   )
 }

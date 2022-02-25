@@ -32,7 +32,7 @@ export const timerSlice = createSlice({
     },
 
     decrementBreak: (state) => {
-      if (state.breakLength === 0) {
+      if (state.breakLength === 1) {
         return 
       }
       state.breakLength -= 1
@@ -46,7 +46,7 @@ export const timerSlice = createSlice({
     },
 
     decrementSession: (state) => {
-      if(state.sessionLength === 0) {
+      if(state.sessionLength === 1) {
         return 
       }
       state.sessionLength -= 1
@@ -60,14 +60,14 @@ export const timerSlice = createSlice({
     },
 
     decrementTimer: (state) => {
-      if (state.countdown.minutes === 0) {
+      if (state.countdown.minutes === 1) {
         return 
       }
       state.countdown.minutes -= 1
     },
 
     runTimer: (state) => {
-      if (state.countdown.seconds === 0) {
+      if (state.countdown.seconds === 1) {
         state.countdown.minutes -= 1
         state.countdown.seconds = 59
       }
@@ -75,11 +75,22 @@ export const timerSlice = createSlice({
     },
 
     resetTimer: (state) => {
-        state.breakLength = 25;
+        state.breakLength = 5;
+        state.sessionLength = 25;
+        state.countdown.minutes = 25;
+        state.countdown.seconds = 0;
     }
   }
 })
 
 
-export const {incrementBreak, decrementBreak, incrementSession, decrementSession, runTimer, incrementTimer, decrementTimer} = timerSlice.actions
+export const {
+  incrementBreak, 
+  decrementBreak, 
+  incrementSession, 
+  decrementSession, 
+  runTimer, 
+  resetTimer,
+  incrementTimer, 
+  decrementTimer } = timerSlice.actions
 export default timerSlice.reducer
