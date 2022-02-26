@@ -2,7 +2,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface timerState {
   breakLength: number,
-  sessionLength: number
+  breakOn: boolean,
+  sessionLength: number,
+  sessionOn: boolean,
   countdown: {
     minutes: number,
     seconds: number
@@ -12,6 +14,8 @@ export interface timerState {
 
 const initialState: timerState = {
   breakLength: 5,
+  breakOn: false,
+  sessionOn: false,
   sessionLength: 25,
   countdown: {
     minutes: 25,
@@ -82,6 +86,24 @@ export const timerSlice = createSlice({
         state.sessionLength = 25;
         state.countdown.minutes = 25;
         state.countdown.seconds = 0;
+    },
+
+    startBreak: (state) => {
+      state.countdown.minutes = state.breakLength
+      state.countdown.seconds = 0
+    },
+
+    startSession: (state) => {
+      state.countdown.minutes = state.sessionLength
+      state.countdown.seconds = 0
+    },
+
+    setBreak: (state, action: PayloadAction<boolean>) => {
+      state.breakOn = action.payload
+    },
+
+    setSession: (state, action: PayloadAction<boolean>) => {
+      state.sessionOn = action.payload
     }
   }
 })
@@ -94,6 +116,10 @@ export const {
   decrementSession, 
   runTimer, 
   resetTimer,
+  setBreak,
+  setSession,
+  startBreak,
+  startSession,
   incrementTimer, 
   decrementTimer } = timerSlice.actions
 export default timerSlice.reducer
