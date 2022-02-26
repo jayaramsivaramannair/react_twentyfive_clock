@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface timerState {
   breakLength: number,
-  sessionLength: number,
+  sessionLength: number
   countdown: {
     minutes: number,
     seconds: number
@@ -67,10 +67,13 @@ export const timerSlice = createSlice({
     },
 
     runTimer: (state) => {
-      if (state.countdown.seconds === 1) {
+      if (state.countdown.minutes === 0 && state.countdown.seconds === 0) {
+        return 
+      } else if (state.countdown.seconds === 0) {
         state.countdown.minutes -= 1
         state.countdown.seconds = 59
-      }
+        return 
+      } 
       state.countdown.seconds -= 1
     },
 
