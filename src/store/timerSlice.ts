@@ -5,6 +5,7 @@ export interface timerState {
   breakOn: boolean,
   sessionLength: number,
   sessionOn: boolean,
+  timerRunning: boolean,
   countdown: {
     minutes: number,
     seconds: number
@@ -16,6 +17,7 @@ const initialState: timerState = {
   breakLength: 5,
   breakOn: false,
   sessionOn: false,
+  timerRunning: false,
   sessionLength: 25,
   countdown: {
     minutes: 25,
@@ -104,6 +106,10 @@ export const timerSlice = createSlice({
 
     setSession: (state, action: PayloadAction<boolean>) => {
       state.sessionOn = action.payload
+    },
+
+    startOrStopTimer: (state, action: PayloadAction<boolean>) => {
+      state.timerRunning = action.payload
     }
   }
 })
@@ -119,6 +125,7 @@ export const {
   setBreak,
   setSession,
   startBreak,
+  startOrStopTimer,
   startSession,
   incrementTimer, 
   decrementTimer } = timerSlice.actions

@@ -31,10 +31,7 @@ function Timer() {
   return (
     <div id="timer-label" style={{color: (minutes === '00') ? 'red' : 'aliceblue'}}>
       {
-        (breakOn) ? <p>Break</p> : ''
-      }
-      {
-        (sessionOn) ? <p>Session</p> : ''
+        (breakOn) ? <p>Break</p> : <p>Session</p>
       }
       <p >{`${minutes}:${seconds}`}</p>
     </div>

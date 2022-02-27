@@ -3,7 +3,7 @@ import {BiReset} from 'react-icons/bi'
 import {FiPlay, FiPause} from 'react-icons/fi'
 import {RootState} from '../store/store'
 import {useDispatch, useSelector} from 'react-redux'
-import {resetTimer, runTimer } from '../store/timerSlice'
+import {resetTimer, runTimer, startOrStopTimer } from '../store/timerSlice'
 
 function Controls() {
   const [timerID, setTimerID] = useState<number>(0)
@@ -12,19 +12,23 @@ function Controls() {
 
   const startTimer = () => {
     dispatch(runTimer())
+    dispatch(startOrStopTimer(true))
+  
   }
 
   const startPlusStopFunction = () => {
     if (countdown.minutes === 0 && countdown.seconds === 0) {
       return 
     }
-    
+
+    //Checks if the countdown is already running or not
     if (timerID !== 0) {
       window.clearInterval(timerID)
       setTimerID(0)
+      dispatch(startOrStopTimer(false))
       return 
     }
-   //Checks if the countdown is already running or not
+   
    let ID = window.setInterval(startTimer, 1000)
    setTimerID(ID)
   }
