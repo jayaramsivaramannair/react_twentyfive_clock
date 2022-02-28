@@ -33,7 +33,13 @@ function Timer() {
       {
         (breakOn) ? <p>Break</p> : <p>Session</p>
       }
-      <p >{`${minutes}:${seconds}`}</p>
+      {
+        (minutes === "00" && (seconds === "00" || seconds === "01" || seconds === "02" || seconds === "03")) ?
+        <audio id="beep" src="/audio/alarm.wav" autoPlay/>
+        : ''
+      }
+      <p>{`${minutes}:${seconds}`}</p>
+      
     </div>
   )
 }

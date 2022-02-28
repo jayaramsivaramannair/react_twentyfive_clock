@@ -75,12 +75,14 @@ export const timerSlice = createSlice({
     runTimer: (state) => {
       if (state.countdown.minutes === 0 && state.countdown.seconds === 0) {
         return 
-      } else if (state.countdown.seconds === 0) {
+      } else if (state.countdown.seconds === 0 && state.countdown.minutes !== 0) {
         state.countdown.minutes -= 1
         state.countdown.seconds = 59
-        return 
+        //return 
+      } else {
+        state.countdown.seconds -= 1
       } 
-      state.countdown.seconds -= 1
+      
     },
 
     resetTimer: (state) => {
@@ -92,12 +94,10 @@ export const timerSlice = createSlice({
 
     startBreak: (state) => {
       state.countdown.minutes = state.breakLength
-      state.countdown.seconds = 0
     },
 
     startSession: (state) => {
       state.countdown.minutes = state.sessionLength
-      state.countdown.seconds = 0
     },
 
     setBreak: (state, action: PayloadAction<boolean>) => {
